@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>{{LABEL}}</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>{{PYTHON3_PATH}}</string>
+        <string>{{PROJECT_DIR}}/{{SCRIPT_NAME}}</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>{{PROJECT_DIR}}</string>
+
+    <!-- 毎週実行（Weekday: 0/7=日, 1=月 … 6=土）-->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>1</integer>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>{{PROJECT_DIR}}/自動実行ログ.txt</string>
+    <key>StandardErrorPath</key>
+    <string>{{PROJECT_DIR}}/自動実行ログ.txt</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
