@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import StickyCta from "../components/StickyCta.astro";
 
 interface Props {
   title: string;
@@ -26,7 +27,8 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#F5FAF3] text-[#33402F]">
+  <body class="bg-[#F5FAF3] pb-[92px] text-[#33402F]">
     <slot />
+    <StickyCta />
   </body>
 </html>
