@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+}
+
+a {
+  color: #2e8b57;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1f6b41;
+}
