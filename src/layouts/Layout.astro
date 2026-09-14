@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
 import StickyCta from "../components/StickyCta.astro";
 
 interface Props {
@@ -28,6 +29,7 @@ const { title } = Astro.props;
     />
   </head>
   <body class="bg-[#F5FAF3] pb-[92px] text-[#33402F]">
+    <Header />
     <slot />
     <StickyCta />
   </body>

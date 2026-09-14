@@ -1,0 +1,115 @@
+---
+const menuItems = [
+  { href: "#about", label: "About" },
+  { href: "#media-stats", label: "メディア数値" },
+  { href: "#strengths", label: "対応できること" },
+  { href: "#instagram", label: "Instagram" },
+  { href: "#contact", label: "お問い合わせ" },
+];
+---
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-2.5">
+    <a href="#top" class="flex items-center gap-2.5">
+      <img
+        src="/images/avatar-kochi.jpg"
+        alt="こち"
+        class="h-9 w-9 rounded-full object-cover"
+      />
+      <span class="text-base font-bold">こち</span>
+    </a>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="global-menu"
+      aria-label="メニューを開く"
+      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[#33402F] hover:bg-black/5"
+    >
+      <svg
+        id="icon-open"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><line x1="4" y1="7" x2="20" y2="7"></line><line
+          x1="4"
+          y1="12"
+          x2="20"
+          y2="12"></line><line x1="4" y1="17" x2="20" y2="17"
+        ></line></svg
+      >
+      <svg
+        id="icon-close"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="hidden"
+        ><line x1="6" y1="6" x2="18" y2="18"></line><line
+          x1="18"
+          y1="6"
+          x2="6"
+          y2="18"></line></svg
+      >
+    </button>
+  </div>
+
+  <nav
+    id="global-menu"
+    class="hidden border-t border-black/5 bg-white px-6 py-5"
+  >
+    <ul class="mx-auto flex max-w-4xl flex-col gap-1">
+      {
+        menuItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="menu-link block rounded-xl px-3 py-3 text-[15px] font-bold text-[#33402F] hover:bg-[#F6FBF3] hover:text-[#2E8B57]"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("global-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  if (btn && menu && iconOpen && iconClose) {
+    const closeMenu = () => {
+      btn.setAttribute("aria-expanded", "false");
+      menu.classList.add("hidden");
+      iconOpen.classList.remove("hidden");
+      iconClose.classList.add("hidden");
+    };
+
+    const toggleMenu = () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      menu.classList.toggle("hidden");
+      iconOpen.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
+    };
+
+    btn.addEventListener("click", toggleMenu);
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+</script>
